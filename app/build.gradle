@@ -1,0 +1,78 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+apply plugin: 'com.antfortune.freeline'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
+    defaultConfig {
+        applicationId "com.freddon.android.app.rxjavalol"
+        minSdkVersion 14
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+}
+
+
+apt {
+    arguments {
+        // you should set your package name here if you are using different application IDs
+        // resourcePackageName "your.package.name"
+
+        // You can set optional annotation processing options here, like these commented options:
+        // logLevel 'INFO'
+        // logFile '/var/log/aa.log'
+        logLevel 'TRACE'
+        logAppenderConsole 'true'
+    }
+}
+
+
+ext{
+    androidAnotationVersion = "4.1.0"
+    androidSupportVersion = "25.0.1"
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(':lib:markdownwebview')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile "com.android.support:appcompat-v7:${androidSupportVersion}"
+    compile "com.android.support:design:${androidSupportVersion}"
+    compile "com.android.support:support-v4:${androidSupportVersion}"
+    compile "com.android.support:recyclerview-v7:${androidSupportVersion}"
+    compile "com.android.support:support-vector-drawable:${androidSupportVersion}"
+
+//    compile 'com.jakewharton:butterknife:8.4.0'
+//    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.1.6'
+
+    //图像加载库
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    //网络请求
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile 'com.squareup.okhttp3:okhttp:3.3.1'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
+    testCompile 'junit:junit:4.12'
+
+
+
+    apt "org.androidannotations:androidannotations:${androidAnotationVersion}"
+    compile "org.androidannotations:androidannotations-api:${androidAnotationVersion}"
+
+}

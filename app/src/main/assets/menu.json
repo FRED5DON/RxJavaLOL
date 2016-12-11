@@ -1,0 +1,110 @@
+[
+  {
+    "text": "RxJava for Android 1.x",
+    "level": 0,
+    "desc": "Rx",
+    "child": [
+      {
+        "text": "操作符",
+        "level": 1,
+        "desc": "",
+        "child": [
+          {
+            "text": "创建操作符",
+            "desc": "create、just、from、defer、range、interval、timer、empty、never",
+            "level": 2,
+            "child": [
+              {
+                "text": "create",
+                "desc": "create() 方法是 RxJava 最基本的创造事件序列的方法",
+                "level": 3,
+                "flag": 2
+              },
+              {
+                "text": "just(T...)",
+                "desc": "用来创建只发出一个或一系列事件就结束的Observable对象,just(T...): 将传入的参数依次发送出来。【和create例子等价】",
+                "level": 3,
+                "flag": 0
+              },
+              {
+                "text": "timer",
+                "desc": "用来创建定时器",
+                "level": 3,
+                "flag": 1
+              },
+              {
+                "text": "interval",
+                "desc": "每隔一定时间执行",
+                "level": 3,
+                "flag": 5
+              },
+              {
+                "text": "from(T[]) / from(Iterable<? extends T>) / from(Future<? extends T> future) ",
+                "desc": "将传入的数组或 Iterable 拆分成具体对象后，依次发送出来。【和create例子等价】",
+                "level": 3,
+                "flag": 4
+              }
+            ]
+          },
+          {
+            "text": "变换操作符",
+            "desc": "map、buffer、window、flatMap、groupBy",
+            "level": 2,
+            "child": [
+              {
+                "text": "map",
+                "desc": "变换（也可以叫映射）Observable对象，在被订阅之前可进行多次变换",
+                "level": 3,
+                "flag": 3
+              },
+              {
+                "text": "flatMap",
+                "desc": "返回一个自身发送事件并合并结果的Observable。可以用于任何由原始Observable发送出的事件，发送合并后的结果。（无序性）",
+                "level": 3,
+                "flag": 8
+              },
+              {
+                "text": "concatMap",
+                "desc": "作用同flatMap，区别是有序性",
+                "level": 3,
+                "flag": 9
+              }
+            ]
+          },
+          {
+            "text": "结合操作符",
+            "desc": "startWith、merge、concatWith、zip、join",
+            "level": 2,
+            "child": [
+              {
+                "text": "merge",
+                "desc": "合并，无序性",
+                "level": 3,
+                "flag": 7
+              },
+              {
+                "text": "concatWith",
+                "desc": "发射的数据末尾追加一个数据序列",
+                "level": 3,
+                "flag": 10
+              }
+            ]
+          },
+          {
+            "text": "其他类别的操作符",
+            "desc": "过滤 filter、 debounce\n条件 contains、all\n连接 connect、publish、refCount、replay\n转换 toList、toMap阻塞 forEach、first\n字符串操作 byLine/decode/encode/from/join/split/stringConcat\n算术操作 average/concat/count/max/min/sum/reduce\n错误处理 catch/retry/retryWhen",
+            "level": 2,
+            "child": [
+              {
+                "text": "filter",
+                "desc": "按照一定的规则进行筛选、过滤",
+                "level": 3,
+                "flag": 6
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
